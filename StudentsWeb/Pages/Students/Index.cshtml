@@ -1,0 +1,48 @@
+﻿@page
+@model StudentsWeb.Pages.Students.Index
+@{
+    ViewData["Title"] = "Students";
+}
+
+<div>
+    <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#addStudentModal">
+        Add Student
+    </button>
+</div>
+
+<table class="table table-hover">
+    <thead>
+    <tr>
+        <th scope="col">Id</th>
+        <th scope="col">First name</th>
+        <th scope="col">Middle name</th>
+        <th scope="col">Last name</th>
+        <th scope="col">Group</th>
+        <th scope="col">Actions</th>
+    </tr>
+    </thead>
+    <tbody class="table-group-divider">
+    @foreach (var student in Model.Students)
+    {
+        <tr>
+            <th class="col-1">@student.Id</th>
+            <td class="col-2">@student.FirstName</td>
+            <td class="col-2">@student.MiddleName</td>
+            <td class="col-2">@student.LastName</td>
+            <td class="col-2">@student.Group</td>
+            <td class="col-3">
+                <form method="POST">
+                    <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#@string.Concat("id", student.Id)">Update</button>
+                    <button type="submit" class="btn btn-danger" asp-page-handler="DeleteStudent" asp-route-id="@student.Id">Delete</button>
+                </form>
+            </td>
+        </tr>
+        
+        <div class="modal fade" id="@string.Concat("id", student.Id)" tabindex="-1" aria-labelledby="updateStudentModalLabel" aria-hidden="true">
+            <partial name="UpdateModal" model="@student"/>
+        </div>
+    }
+    </tbody>
+</table>
+
+<partial name="CreateModal"/>

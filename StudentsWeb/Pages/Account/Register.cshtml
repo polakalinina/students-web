@@ -1,0 +1,26 @@
+﻿@page
+@model StudentsWeb.Pages.Account.Register
+@{
+    ViewData["Title"] = "Register";
+}
+
+<div class="row">
+    <div class="col-4">
+        <label class="fs-2">Register</label>
+        <form method="post">
+            <div class="mb-3">
+                <label for="exampleInputLogin1" class="form-label">Login</label>
+                <input type="text" class="form-control" id="exampleInputLogin1" name="login">
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Password</label>
+                <input type="password" class="form-control" id="exampleInputPassword1" name="password">
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputPassword2" class="form-label">Repeat password</label>
+                <input type="password" class="form-control" id="exampleInputPassword2" name="repeatPassword">
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+</div>

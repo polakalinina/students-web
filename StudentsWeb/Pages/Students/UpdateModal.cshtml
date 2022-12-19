@@ -1,0 +1,36 @@
+﻿@model StudentsWeb.Entities.Student
+
+<div class="modal-dialog">
+    <div class="modal-content">
+        <form method="POST" asp-page-handler="UpdateStudent">
+            <div class="modal-header">
+                <h5 class="modal-title" id="updateStudentModalLabel">Update Student</h5>
+                <button type="button" class="btn-close btn-close-dark" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                    <div class="mb-3">
+                        <label for="studentFirstNameLabel" class="form-label">First name</label>
+                        <input type="text" class="form-control input-dark" id="studentFirstNameLabel" name="firstName" autocomplete="off" value="@Model.FirstName">
+                    </div>
+                    <div class="mb-3">
+                        <label for="studentMiddleNameLabel" class="form-label">Middle name</label>
+                        <input type="text" class="form-control input-dark" id="studentMiddleNameLabel" name="middleName" autocomplete="off" value="@Model.MiddleName">
+                    </div>
+                    <div class="mb-3">
+                        <label for="studentLastNameLabel" class="form-label">Last name</label>
+                        <input type="text" class="form-control input-dark" id="studentLastNameLabel" name="lastName" autocomplete="off" value="@Model.LastName">
+                    </div>
+                    <div class="mb-3">
+                        <label for="studentGroupLabel" class="form-label">Group</label>
+                        <input type="text" class="form-control input-dark" id="studentGroupLabel" name="group" autocomplete="off" value="@Model.Group">
+                    </div>
+                <input type="hidden" name="id" id="updateStudentId" value="@Model.Id"/>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                <button type="submit" class="btn btn-warning">Save</button>
+            </div>
+        </form>
+    </div>
+</div>
+
